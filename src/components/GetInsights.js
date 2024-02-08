@@ -65,7 +65,7 @@ function UpdateModal({ url, onUpdate, onClose }) {
 
   const handleUpdate = async () => {
     try {
-      const response = await axios.put(`http://localhost:8080/${url.urlId}`, {
+      const response = await axios.put(`https://sus9.in/${url.urlId}`, {
         longUrl,
         expiryDateTime
       },{ withCredentials: true });
@@ -121,7 +121,7 @@ function GetInsights() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/user', { withCredentials: true });
+      const response = await axios.get('https://sus9.in/user', { withCredentials: true });
       setUrls(response.data.urls);
     } catch (error) {
       handleUnauthorizedError(error);
@@ -157,7 +157,7 @@ function GetInsights() {
   };
   const handleDelete = async (url) => {
     try {
-      await axios.delete(`http://localhost:8080/${url.urlId}`,{ withCredentials: true });
+      await axios.delete(`https://sus9.in/${url.urlId}`,{ withCredentials: true });
       // Remove the deleted URL from the state
       setUrls(urls.filter(u => u._id !== url._id));
     } catch (error) {

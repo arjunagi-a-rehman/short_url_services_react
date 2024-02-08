@@ -21,7 +21,7 @@ function GenerateShortURL() {
 
   const handleSubmit = async () => {
     try {
-      const response = await axios.post('http://localhost:8080/', formData,{ withCredentials: true });
+      const response = await axios.post('https://sus9.in/', formData,{ withCredentials: true });
       setGeneratedUrl(response.data.url);
       setErrorMessage('');
     } catch (error) {

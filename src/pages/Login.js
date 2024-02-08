@@ -1,15 +1,17 @@
 import React from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
 
 function Login() {
+  const navigate = useNavigate();
   const handleSubmit = async () => {
     try {
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
   
-      const response = await axios.post('http://localhost:8080/api/v1/auth/login', {
+      const response = await axios.post('https://sus9.in/api/v1/auth/login', {
         email,
         password
       }, {
@@ -25,7 +27,7 @@ function Login() {
         // Store the cookie in the browser's cookie store
         document.cookie = cookie;
       }
-  
+      navigate('/');
       // Redirect to another page upon successful login
       // You can use React Router for navigation
     } catch (error) {
